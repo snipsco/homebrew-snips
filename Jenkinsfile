@@ -47,9 +47,9 @@ node("macos-elcapitan-aws") {
             revision=\$(git rev-parse $platformTag)
             cd ..
 
-            ./make.sh $platformTag \$revision "Formula/snips-platform-common.rb"
-            ./make.sh $platformTag \$revision ${formulaPaths}
-            ./make.sh $platformTag \$revision "Formula/snips-voice-platform.rb"
+            ./make.sh $platformTag \$revision "Formula/snips-platform-common.rb" && \
+                ./make.sh $platformTag \$revision ${formulaPaths} && \
+                ./make.sh $platformTag \$revision "Formula/snips-voice-platform.rb"
 
             git commit -am "[Release] ${platformTag}"
             git push origin master
