@@ -51,7 +51,6 @@ node("macos-elcapitan-aws") {
 
             ./bump.sh $platformTag \$revision \
                 "Formula/snips-platform-common.rb" \
-                "Formula/snips-voice-platform.rb" \
                 $formulaPaths
 
             ./make_bottles.sh "Formula/snips-platform-common.rb" # this should be done first
