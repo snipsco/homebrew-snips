@@ -4,12 +4,18 @@ class SnipsPlatformCommon < Formula
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git,
-    :tag => "0.59.0-DONT-USE",
-    :revision => "3dc6d221232a439115e2edcda43f46f27fdd5170"
+    :tag => "0.59.0-RC0",
+    :revision => "b348ed6d8be7ca50aef7a11c6889cb6eae8ef9c7"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git,
     :branch => "develop"
+
+  bottle do
+    root_url "https://homebrew.snips.ai/bottles"
+    cellar :any_skip_relocation
+    sha256 "5806e10e367dd13900ea0d2f0c37fbef9950e719bcdc4fb536f54aec405c4391" => :high_sierra_or_later
+  end
 
   skip_clean "var/snips"
 
