@@ -60,7 +60,7 @@ node("macos-elcapitan-aws") {
 
             ./merge.sh \$(find . "*.bottle.json")
 
-            ./upload_bottle.sh
+            ./upload_bottles.sh
 
             cd ..
 
