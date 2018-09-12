@@ -47,9 +47,23 @@ node("macos-elcapitan-aws") {
             revision=\$(git rev-parse $platformTag)
             cd ..
 
-            ./make.sh $platformTag \$revision "Formula/snips-platform-common.rb" && \
-                ./make.sh $platformTag \$revision ${formulaPaths} && \
-                ./make.sh $platformTag \$revision "Formula/snips-voice-platform.rb"
+            cd .ci/
+
+            ./bump.sh $platformTag \$revision \
+                "Formula/snips-platform-common.rb" \
+                "Formula/snips-voice-platform.rb" \
+                $formulaPaths
+
+            ./make_bottles.sh "Formula/snips-platform-common.rb" # this should be done first
+            ./make_bottles.sh $formulaPaths
+
+            ./rename_bottles.sh \$(find . "*.bottle.json")
+
+            ./merge.sh \$(find . "*.bottle.json")
+
+            ./upload_bottle.sh
+
+            cd ..
 
             git commit -am "[Release] ${platformTag}"
             git push origin master
