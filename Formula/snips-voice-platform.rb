@@ -11,7 +11,6 @@ class SnipsVoicePlatform < Formula
     :using => :git,
     :branch => "develop"
 
-  option "with-debug", "Build with debug support"
   option "without-analytics", "Won't install snips-analytics"
 
   depends_on "snips-asr"
