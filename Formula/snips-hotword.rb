@@ -68,6 +68,8 @@ class SnipsHotword < Formula
         <string>#{var}/log/snips/snips-hotword.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/snips/snips-hotword.log</string>
+        <key>ProcessType</key>
+        <string>Interactive</string>
       </dict>
     </plist>
   EOS

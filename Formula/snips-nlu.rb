@@ -70,6 +70,8 @@ class SnipsNlu < Formula
         <string>#{var}/log/snips/snips-nlu.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/snips/snips-nlu.log</string>
+        <key>ProcessType</key>
+        <string>Interactive</string>
       </dict>
     </plist>
   EOS

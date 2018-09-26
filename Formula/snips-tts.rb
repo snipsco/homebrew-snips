@@ -68,6 +68,8 @@ class SnipsTts < Formula
         <string>#{var}/log/snips/snips-tts.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/snips/snips-tts.log</string>
+        <key>ProcessType</key>
+        <string>Interactive</string>
       </dict>
     </plist>
   EOS

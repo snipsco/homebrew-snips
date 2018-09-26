@@ -74,6 +74,8 @@ class SnipsInjection < Formula
         <string>#{var}/log/snips/snips-asr.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/snips/snips-asr.log</string>
+        <key>ProcessType</key>
+        <string>Interactive</string>
       </dict>
     </plist>
   EOS
