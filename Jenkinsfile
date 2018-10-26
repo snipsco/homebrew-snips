@@ -5,7 +5,9 @@ def git_user_email =  'jenkins@snips.ai'
 def git_user_name =  'Jenkins'
 
 def ssh_sh(String action) {
-    sh "ssh-agent sh -c 'ssh-add ; $action'"
+    sh """
+     ssh-agent sh -c 'ssh-add ; $action'
+    """
 }
 
 def formulae = [
@@ -52,9 +54,9 @@ node("macos-elcapitan-aws") {
             .ci/make_bottles.sh Formula/snips-platform-common.rb
             .ci/make_bottles.sh $formulaPaths
 
-            .ci/rename_bottles.sh \$(find . -name '*.bottle.json')
+            .ci/rename_bottles.sh '*.bottle.json'
 
-            .ci/merge.sh \$(find . -name '*.bottle.json')
+            .ci/merge.sh '*.bottle.json'
 
             .ci/upload_bottles.sh
 

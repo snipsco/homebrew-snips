@@ -4,8 +4,8 @@ class SnipsDialogue < Formula
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git,
-    :tag => "0.59.0",
-    :revision => "e8e986db0566ff30b67ac9ed31f2074bc9bb6440"
+    :tag => "0.60.1",
+    :revision => "c943f9f110c9748738121a586dbd004f9aa1b585"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git,
