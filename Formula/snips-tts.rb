@@ -13,7 +13,7 @@ class SnipsTts < Formula
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "3c4cc212e9811a398468da91892b13221980575998bcfb54568ad9bb36cc086a" => :el_capitan_or_later
+    sha256 "dae0df7f169df944d627a262974b2967da490728b6df7365de177945bbc9284b" => :el_capitan_or_later
   end
 
   option "with-debug", "Build with debug support"
