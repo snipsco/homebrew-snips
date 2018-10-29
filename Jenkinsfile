@@ -1,8 +1,5 @@
-//def git_user_email = "tobor.spins@snips.net"
-//def git_user_name = "Tobor"
-
-def git_user_email =  'jenkins@snips.ai'
-def git_user_name =  'Jenkins'
+def git_user_email = "tobor.spins@snips.net"
+def git_user_name = "Tobor"
 
 def ssh_sh(String action) {
     sh """
