@@ -38,9 +38,9 @@ class SnipsSkillServer < Formula
       zsh_completion.install "#{target_dir}/completion/_snips-skill-server"
     end
   end
-  
+
   plist_options :manual => "snips-skill-server -c #{HOMEBREW_PREFIX}/etc/snips.toml"
-  
+
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -71,7 +71,7 @@ class SnipsSkillServer < Formula
         <string>Interactive</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
