@@ -14,7 +14,7 @@ class SnipsPlatformCommon < Formula
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
     cellar :any_skip_relocation
-    sha256 "b108524b944f9b0ce61727502dd2bb6d1338a9e3d169e9658ded6c7a5e68dc94" => :el_capitan
+    sha256 "f99e04917d29d3de650daa0c4e4781461c2e8baa673cdce494e32330f082c129" => :el_capitan_or_later
   end
 
   skip_clean "var/snips"

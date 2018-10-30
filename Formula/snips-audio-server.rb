@@ -13,7 +13,7 @@ class SnipsAudioServer < Formula
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "ce698f552b1cef0ed8531123d4576f24990177f15a2c6c6766166ee7aaf6b26b" => :el_capitan
+    sha256 "9108eb8c4e4704ce8fefa5fa99df0b0a39b125edab4ca2a9f647fda0935b2e27" => :el_capitan_or_later
   end
 
   option "with-debug", "Build with debug support"
