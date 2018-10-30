@@ -20,6 +20,7 @@ class SnipsHotword < Formula
   option "without-completion", "bash, zsh and fish completion will not be installed"
 
   depends_on "rust" => :build
+  depends_on "portaudio"
   depends_on "snips-platform-common"
 
   def install
