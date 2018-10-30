@@ -39,7 +39,7 @@ node("macos-elcapitan-aws") {
 
         ssh_sh """
             set -e
-            
+
             git config --global user.email ${git_user_email}
             git config --global user.name ${git_user_name}
 
