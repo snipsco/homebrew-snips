@@ -48,9 +48,13 @@ node("macos-elcapitan-aws") {
 
             .ci/bump.sh $platformTag \$revision \
                 Formula/snips-platform-common.rb \
+                Formula/libsnips_megazord.rb \
                 $formulaPaths
 
+            .ci/audit.sh Formula/snips-platform-common.rb $formulaPaths
+
             .ci/make_bottles.sh Formula/snips-platform-common.rb
+            .ci/make_bottles.sh Formula/libsnips_megazord.rb
             .ci/make_bottles.sh $formulaPaths
 
             .ci/rename_bottles.sh '*.bottle.json'
