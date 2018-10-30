@@ -38,6 +38,8 @@ node("macos-elcapitan-aws") {
         def formulaPaths = formulae.collect { formula -> "Formula/${formula}" }.join(" ")
 
         ssh_sh """
+            set -e
+            
             git config --global user.email ${git_user_email}
             git config --global user.name ${git_user_name}
 
