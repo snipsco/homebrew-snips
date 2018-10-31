@@ -28,5 +28,4 @@ brew install $formula_files \
 brew bottle $formula_files \
     --root-url="https://homebrew.snips.ai/bottles" \
     --force-core-tap \
-    --or-later \
     --json

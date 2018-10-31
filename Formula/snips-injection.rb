@@ -13,7 +13,7 @@ class SnipsInjection < Formula
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "e4829560c192bb62f1cd262ec5ffc6a5084aa1812f9535536a361db2950224e5" => :el_capitan_or_later
+    sha256 "e4829560c192bb62f1cd262ec5ffc6a5084aa1812f9535536a361db2950224e5" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
