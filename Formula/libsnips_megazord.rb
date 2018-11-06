@@ -3,13 +3,10 @@ class LibsnipsMegazord < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git,
-    :tag => "0.60.2",
-    :revision => "bcf326aebf1ab60e9acd8ca2c0843b628d4c887a"
+    :using => :git, :tag => "0.60.2", :revision => "bcf326aebf1ab60e9acd8ca2c0843b628d4c887a"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git,
-    :branch => "develop"
+    :using => :git, :branch => "develop"
 
   option "with-debug", "Build with debug support"
 
