@@ -23,7 +23,7 @@ class LibsnipsMegazord < Formula
     ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.11"
     system "cargo", "build", "--package=snips-megazord", "--release" if build.without? "debug"
 
-    lib.install target_dir/"libsnips_megazord.a"
+    lib.install "#{target_dir}/libsnips_megazord.a"
     include.install "snips-megazord/platforms/c/libsnips_megazord.h"
     (lib/"pkgconfig/snips_megazord.pc").write <<~EOS
       Name: snips_megazord
