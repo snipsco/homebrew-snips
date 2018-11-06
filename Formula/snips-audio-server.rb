@@ -3,14 +3,14 @@ class SnipsAudioServer < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.60.2", :revision => "bcf326aebf1ab60e9acd8ca2c0843b628d4c887a"
+    :using => :git, :tag => "0.60.3", :revision => "36f15ae289ec203aea2437d986a93b83e8710cf1"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "9108eb8c4e4704ce8fefa5fa99df0b0a39b125edab4ca2a9f647fda0935b2e27" => :el_capitan
+    sha256 "eee63eb2fe2543740a01b28bd3015774b88754f2271401de78a5f2ba4193485f" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
