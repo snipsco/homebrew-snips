@@ -27,7 +27,9 @@ class LibsnipsMegazord < Formula
 
     # Needed to build openfst (cstdint issue)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.11"
-    system "cargo", "build", "--package=snips-megazord", "--release" if build.without? "debug"
+    args = %W[--package=snips-megazord]
+    args << "--release" if build.without? "debug"
+    system "cargo", "build", *args
 
     lib.install "#{target_dir}/libsnips_megazord.a"
     include.install "snips-megazord/platforms/c/libsnips_megazord.h"
