@@ -31,7 +31,7 @@ class LibsnipsMegazord < Formula
     args << "--release" if build.without? "debug"
     system "cargo", "build", *args
 
-    lib.install "#{target_dir}/libsnips_megazord.a"
+    lib.install Dir.glob("#{target_dir}/libsnips_megazord.{a,dylib}")
     include.install "snips-megazord/platforms/c/libsnips_megazord.h"
     (lib/"pkgconfig/snips_megazord.pc").write <<~EOS
       Name: snips_megazord
