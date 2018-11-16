@@ -3,14 +3,14 @@ class SnipsTts < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.60.3", :revision => "36f15ae289ec203aea2437d986a93b83e8710cf1"
+    :using => :git, :tag => "0.60.5", :revision => "65d44bc5786cf736bbae8c3daabe3bdf1ee24fe1"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "f41dc86c7ab35905d67c14b303f16b3cac5fce87e5b6440f6371258798d838cb" => :el_capitan
+    sha256 "8896bc8e44d85f5c35ced31233ac7eee4845cebdf0faa0e39f6aec5840559bda" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
