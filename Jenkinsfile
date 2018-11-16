@@ -7,6 +7,7 @@ def ssh_sh(String action) {
     """
 }
 
+// the order of the formulae is very important: snips-platform-common must be first
 def formulae = [
     "snips-platform-common.rb",
     "libsnips_megazord.rb",
