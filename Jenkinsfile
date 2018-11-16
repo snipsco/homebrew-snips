@@ -7,7 +7,10 @@ def ssh_sh(String action) {
     """
 }
 
+// the order of the formulae is very important: snips-platform-common must be first
 def formulae = [
+    "snips-platform-common.rb",
+    "libsnips_megazord.rb",
     "snips-analytics.rb",
     "snips-asr-google.rb",
     "snips-asr.rb",
@@ -22,9 +25,16 @@ def formulae = [
 ]
 
 node("macos-elcapitan-aws") {
+
+    def platformTag = "${params.tag}"
+    def formulaPaths = formulae.collect { formula -> "Formula/${formula}" }.join(" ")
+    def formulaPathsToAudit = formulae.findAll{ it != "libsnips_megazord.rb" }.collect { formula -> "Formula/${formula}" }.join(" ")
+    def git_url = "git@github.com:snipsco/snips-platform.git"
+
     properties([
         parameters([
             string(defaultValue: 'NONE', description: 'tag to build', name: 'tag'),
+            booleanParam(defaultValue: false, description: 'merge,upload and push to prod', name: 'push_to_prod'),
         ])
     ])
 
@@ -33,40 +43,52 @@ node("macos-elcapitan-aws") {
         checkout scm
     }
 
-    stage('Release') {
-        def platformTag = "${params.tag}"
-        def formulaPaths = formulae.collect { formula -> "Formula/${formula}" }.join(" ")
-
-        ssh_sh """
+    stage('Audit Formula') {
+       ssh_sh """
             set -e
 
             git config --global user.email ${git_user_email}
             git config --global user.name ${git_user_name}
 
-            git clone --branch $platformTag --depth 1 git@github.com:snipsco/snips-platform.git
+            git clone --branch $platformTag --depth 1 ${git_url}
             revision=\$(cd snips-platform && git rev-parse $platformTag)
 
-            .ci/bump.sh $platformTag \$revision \
-                Formula/snips-platform-common.rb \
-                Formula/libsnips_megazord.rb \
-                $formulaPaths
+            .ci/bump.sh $platformTag \$revision $formulaPaths
 
-            .ci/audit.sh Formula/snips-platform-common.rb $formulaPaths
+            .ci/audit.sh $formulaPathsToAudit
+       """
+    }
+    
+    formulae.each{ formula ->
+        def formulaPath = "Formula/${formula}"
+        stage("Make ${formula}") {
+            ssh_sh """
+                set -e
+                .ci/make_bottles.sh $formulaPath
+            """
+        }
+    }
 
-            .ci/make_bottles.sh Formula/snips-platform-common.rb
-            .ci/make_bottles.sh Formula/libsnips_megazord.rb
-            .ci/make_bottles.sh $formulaPaths
+    if(params.push_to_prod.toBoolean()) {
+        stage('Release') {
 
-            .ci/rename_bottles.sh '*.bottle.json'
+            ssh_sh """
+                 set -e
 
-            .ci/merge.sh '*.bottle.json'
+                 git config --global user.email ${git_user_email}
+                 git config --global user.name ${git_user_name}
 
-            .ci/upload_bottles.sh
+                 .ci/rename_bottles.sh '*.bottle.json'
 
-            git checkout master
-            git commit -am "[Release] ${platformTag}"
-            git push origin master
-        """
+                 .ci/merge.sh '*.bottle.json'
+
+                 .ci/upload_bottles.sh
+
+                 git checkout master
+                 git commit -am "[Release] ${platformTag}"
+                 git push origin master
+            """
+        }
     }
 }
 
