@@ -13,8 +13,9 @@ fi
 
 formula_files=${@:1}
 
+
 # Uninstall formulae because if they already exist, the install will fail
-brew uninstall $formula_files --force --ignore-dependencies
+for i in `brew list | grep snips` ; do brew uninstall $i  --force --ignore-dependencies ; done
 
 # Build bottle formulae 
 brew install $formula_files \
