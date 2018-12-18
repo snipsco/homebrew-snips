@@ -3,14 +3,15 @@ class SnipsWatch < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.60.5", :revision => "65d44bc5786cf736bbae8c3daabe3bdf1ee24fe1"
+    :using => :git, :tag => "0.60.8", :revision => "a24ab11a767832b2b8d160ef654ca02e92070430"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "745a3be837afffac8dfb3928236b7e8e2a72dac757ca60ecced60fcd06b77493" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "27db56a64ffa9cf4e6a8c52c6ccf1cfed5073b9754caf694b3397fb4bc7c9550" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"

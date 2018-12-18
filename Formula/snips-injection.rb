@@ -3,14 +3,15 @@ class SnipsInjection < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.60.5", :revision => "65d44bc5786cf736bbae8c3daabe3bdf1ee24fe1"
+    :using => :git, :tag => "0.60.8", :revision => "a24ab11a767832b2b8d160ef654ca02e92070430"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
 
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
-    sha256 "054f9007ecb5fdcf8d2cb9a365cfd2b1ec41b1501eb112707d27d077e83695a3" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "c155b5f1f343445b5a4f97b71f02fa98b05ae961c5d289b342af96dfe13098b6" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
