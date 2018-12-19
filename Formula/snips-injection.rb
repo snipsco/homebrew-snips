@@ -69,9 +69,9 @@ class SnipsInjection < Formula
         <key>WorkingDirectory</key>
         <string>#{var}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/snips/snips-asr.log</string>
+        <string>#{var}/log/snips/snips-injection.log</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/snips/snips-asr.log</string>
+        <string>#{var}/log/snips/snips-injection.log</string>
         <key>ProcessType</key>
         <string>Interactive</string>
       </dict>
