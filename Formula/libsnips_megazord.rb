@@ -3,7 +3,7 @@ class LibsnipsMegazord < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.60.8", :revision => "a24ab11a767832b2b8d160ef654ca02e92070430"
+    :using => :git, :tag => "0.60.10", :revision => "52306741000f9e4d060345c551bcfd72214eadef"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
@@ -11,7 +11,7 @@ class LibsnipsMegazord < Formula
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
     cellar :any
-    sha256 "aa0b42484b2eefad29eac31abe9bd26e6d275f8c96af4e6bc3fc238545dff459" => :el_capitan
+    sha256 "3653743c4201659b71f9374d2c8462c5dd0280fa151398c6e81572c5a3e6df8d" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
