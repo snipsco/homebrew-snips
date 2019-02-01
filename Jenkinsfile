@@ -24,7 +24,7 @@ def formulae = [
     "snips-watch.rb",
 ]
 
-node("macos-elcapitan-aws") {
+node("macos-elcapitan-homebrew") {
 
     def platformTag = "${params.tag}"
     def formulaPaths = formulae.collect { formula -> "Formula/${formula}" }.join(" ")
