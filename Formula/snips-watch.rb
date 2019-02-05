@@ -20,7 +20,7 @@ class SnipsWatch < Formula
   depends_on "rust" => :build
 
   def install
-    target_dir = build.with?("debug") ? buildpath/"target/debug" : buildpath/"target/release"
+    target_dir = build.with?("debug") ? "target/debug" : "target/release"
 
     args = %W[--root=#{prefix}]
     args << "--path=snips-watch/snips-watch"
