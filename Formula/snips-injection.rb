@@ -37,6 +37,10 @@ class SnipsInjection < Formula
 
     bin.install "#{target_dir}/snips-injection"
 
+    mkdir_p "homebrew/snips"
+    cp_r "snips-asr/snips-g2p-resources", "homebrew/snips/g2p-models"
+    share.install "homebrew/snips"
+
     if build.with? "completion"
       bash_completion.install "#{target_dir}/completion/snips-injection.bash"
       fish_completion.install "#{target_dir}/completion/snips-injection.fish"
