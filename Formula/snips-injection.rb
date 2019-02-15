@@ -24,7 +24,7 @@ class SnipsInjection < Formula
   depends_on "snips-platform-common"
 
   def install
-    target_dir = build.with?("debug") ? buildpath/"target/debug" : buildpath/"target/release"
+    target_dir = build.with?("debug") ? "target/debug" : "target/release"
 
     args = %W[--root=#{prefix}]
     args << "--path=snips-injection/snips-injection"
@@ -36,6 +36,10 @@ class SnipsInjection < Formula
     system "cargo", "install", *args
 
     bin.install "#{target_dir}/snips-injection"
+
+    mkdir_p "homebrew/snips"
+    cp_r "snips-asr/snips-g2p-resources", "homebrew/snips/g2p-models"
+    share.install "homebrew/snips"
 
     if build.with? "completion"
       bash_completion.install "#{target_dir}/completion/snips-injection.bash"

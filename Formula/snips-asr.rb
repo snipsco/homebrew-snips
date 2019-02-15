@@ -24,7 +24,7 @@ class SnipsAsr < Formula
   depends_on "snips-platform-common"
 
   def install
-    target_dir = build.with?("debug") ? buildpath/"target/debug" : buildpath/"target/release"
+    target_dir = build.with?("debug") ? "target/debug" : "target/release"
 
     args = %W[--root=#{prefix}]
     args << "--path=snips-asr/snips-asr"

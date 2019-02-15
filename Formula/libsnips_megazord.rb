@@ -37,7 +37,7 @@ class LibsnipsMegazord < Formula
       Name: snips_megazord
       Description: Snips platform library
       Version: #{version}
-      Libs: -L#{lib} -lsnips_megazord
+      Libs: -L#{lib} -lsnips_megazord -fAccelerate
       Cflags: -I#{include}
     EOS
   end
