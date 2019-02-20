@@ -25,8 +25,6 @@ class LibsnipsMegazord < Formula
   def install
     target_dir = build.with?("debug") ? "target/debug" : "target/release"
 
-    # Needed to build openfst (cstdint issue)
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.11"
     args = %W[--package=snips-megazord]
     args << "--release" if build.without? "debug"
     system "cargo", "build", *args

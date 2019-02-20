@@ -30,9 +30,6 @@ class SnipsInjection < Formula
     args << "--path=snips-injection/snips-injection"
     args << "--debug" if build.with? "debug"
 
-    # Needed to build openfst (cstdint issue)
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.11"
-
     system "cargo", "install", *args
 
     bin.install "#{target_dir}/snips-injection"
