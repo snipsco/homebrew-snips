@@ -33,7 +33,6 @@ class SnipsAsr < Formula
     system "cargo", "install", *args
 
     bin.install "#{target_dir}/snips-asr"
-    lib.install Dir.glob(File.join(target_dir, "build", "snips-kaldi-sys-*", "out", "libsnips_kaldi.dylib"))[0]
 
     if build.with? "completion"
       bash_completion.install "#{target_dir}/completion/snips-asr.bash"
