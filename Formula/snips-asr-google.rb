@@ -16,7 +16,7 @@ class SnipsAsrGoogle < Formula
 
   option "with-debug", "Build with debug support"
 
-  depends_on "protobuf" => :build
+  depends_on "protobuf@3.1" => :build
   depends_on "rust" => :build
   depends_on "snips-platform-common"
 
