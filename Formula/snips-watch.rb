@@ -17,7 +17,9 @@ class SnipsWatch < Formula
   option "with-debug", "Build with debug support"
   option "without-completion", "bash, zsh and fish completion will not be installed"
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "portaudio"
 
   def install
     target_dir = build.with?("debug") ? "target/debug" : "target/release"
