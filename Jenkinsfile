@@ -22,6 +22,7 @@ def formulae = [
     "snips-skill-server.rb",
     "snips-tts.rb",
     "snips-watch.rb",
+    "snips-satellite.rb",
 ]
 
 node("macos-elcapitan-homebrew") {
