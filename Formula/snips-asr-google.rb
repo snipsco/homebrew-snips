@@ -3,7 +3,7 @@ class SnipsAsrGoogle < Formula
   homepage "https://snips.ai"
 
   url "ssh://git@github.com/snipsco/snips-platform.git",
-    :using => :git, :tag => "0.63.3", :revision => "ff18192278224396305114ac5621d78f1056dcc7"
+    :using => :git, :tag => "0.64.0", :revision => "6df6a46d5ccfb312163c60a0ce2b3b90d8136b54"
 
   head "ssh://git@github.com/snipsco/snips-platform.git",
     :using => :git, :branch => "develop"
@@ -11,7 +11,7 @@ class SnipsAsrGoogle < Formula
   bottle do
     root_url "https://homebrew.snips.ai/bottles"
     cellar :any_skip_relocation
-    sha256 "bf470e81e72b29f5cce40fc18951bad25a6d8115b9a8d164e7335974de480982" => :el_capitan
+    sha256 "c418148120e8fc1cbf6d682baa2052ec8bdf2153d783e66a79f5f22f98a9b2e2" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
